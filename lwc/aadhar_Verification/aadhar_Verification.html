@@ -1,0 +1,38 @@
+<template>
+	<template if:false={showUserDetails}>
+		<div class="slds-grid slds-gutters">
+			<div class="slds-col slds-size_2-of-3">
+				<lightning-input type="number" onchange={onAadharChange} label="Please provide your Aadhar number" min-length=12
+					max-length=12 required>
+				</lightning-input>
+			</div>
+			<div class="slds-col slds-size_1-of-3" style="height:5rem;width:20rem;padding:1.4rem">
+				<lightning-button class="slds-m-top_small" label="Verify Aadhar Number" onclick={provideAadharOTP}>
+				</lightning-button>
+			</div>
+		</div>
+	</template>
+	<template if:true={isModalOpen}>
+		<!-- Modal/Popup Box LWC starts here -->
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+			aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<!-- Modal/Popup Box LWC header here -->
+				<!-- Modal/Popup Box LWC body starts here -->
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+					<lightning-input type="number" label="Please enter the OTP sent on your registered mobile number" max-length=6
+						required></lightning-input>
+				</div>
+				<!-- Modal/Popup Box LWC footer starts here -->
+				<footer class="slds-modal__footer">
+					<button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+					<button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK</button>
+				</footer>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+	<template if:true={showUserDetails}>
+		<c-user-details></c-user-details>
+	</template>
+</template>

@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable" >
+    <aura:attribute name="displayText1" type="String" default="text1"></aura:attribute>
+    
+    <div>
+{!v.displayText1}
+
+
+    </div>
+</aura:component>

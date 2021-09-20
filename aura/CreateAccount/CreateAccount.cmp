@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable">
+    <!--Component Start-->
+    <div class="slds-m-around_xx-large">
+        <lightning:recordEditForm objectApiName="Account" aura:id="accForm">
+            <lightning:messages />
+            <lightning:inputField fieldName="Name"/>
+            <lightning:inputField fieldName="AccountNumber"/>
+            <lightning:inputField fieldName="Industry"/>
+            <lightning:inputField fieldName="Phone" />
+            <lightning:inputField fieldName="Website" />
+        </lightning:recordEditForm>
+        <lightning:button variant="brand" type="button" name="Save" label="Save" onclick="{!c.handleCreateAccount}" />
+    </div>
+    <!--Component End-->
+</aura:component>

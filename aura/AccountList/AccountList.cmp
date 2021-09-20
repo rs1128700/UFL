@@ -1,0 +1,21 @@
+<aura:component>
+    <!-- The <aura:handler> tag subscribes this component to events of type c:AccountsLoaded. 
+	For each event received the onAccountsLoaded client-side controller action is called. -->
+    <aura:handler event="c:AccountsLoaded" action="{!c.onAccountsLoaded}"/>
+    
+    <!-- The <lightning:navigation> tag is a service component, which means it has no visual markup itself.
+	It is used to seamlessly navigate to other pages in Lightning Experience.  -->
+    <lightning:navigation aura:id="navigation"/>
+    
+    <aura:attribute name="rows" type="Map[]"/>
+    <aura:attribute name="cols" type="Map[]"/>
+    <lightning:card title="Account List" iconName="standard:account">
+        <lightning:datatable
+            data="{!v.rows}"
+            columns="{!v.cols}"
+            keyField="Id"
+            hideCheckboxColumn="true"
+            showRowNumberColumn="true"
+            onrowaction="{!c.onRowAction}"/>
+    </lightning:card>
+    </aura:component>

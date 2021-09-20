@@ -1,0 +1,3 @@
+<design:component>
+	<design:attribute name="PageHeading" label="Page Heading" description="Provide Page Heading"></design:attribute>
+</design:component>

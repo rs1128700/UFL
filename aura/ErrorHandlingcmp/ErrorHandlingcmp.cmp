@@ -1,0 +1,18 @@
+<aura:component >
+	<aura:attribute name="errorMsg" type="String"></aura:attribute>
+    <aura:attribute name="title" type="String"></aura:attribute>
+    <div class="wk_model_bg"></div>
+    <section role="dialog"  aria-labelledby="header" aria-describedby="errMsg" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container " aura:id="ErrorBox" >
+            <div class="slds-modal__header" aura:id ="errHeader">
+                <lightning:buttonIcon aura:id="clsBtn" iconName="utility:close" alternativeText="Close" class="slds-button slds-button--neutral slds-p-horizontal--xx-small slds-m-right--x-small slds-float--right" onclick="{!c.myAction}">     
+                </lightning:buttonIcon> 
+                <h2 id="header" class="slds-text-heading--medium wk_text">{!v.title}</h2>
+            </div>
+            <div class="myAction slds-p-around--large" aura:id ="errMsg" style="background:#f4f6f9">
+                {!v.errorMsg}
+            </div>
+        </div>
+    </section>
+    
+</aura:component>

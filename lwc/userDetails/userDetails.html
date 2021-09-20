@@ -1,0 +1,148 @@
+<template>
+	<lightning-accordion class="example-accordion"
+		onsectiontoggle={handleToggleSection}
+		active-section-name="A">
+		<lightning-accordion-section name="A" label="CONTACT INFO">
+			<lightning-card>
+				<div class="slds-grid slds-wrap">
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-input label="First Name" value={firstName} onchange={contactChangeVal}></lightning-input>
+						</div>
+					</div>
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-input label="Last Name" value={lastName} onchange={contactChangeVal}></lightning-input>
+						</div>
+					</div>
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-input label="Phone" value={phoneNo} onchange={contactChangeVal}></lightning-input>
+						</div>
+					</div>
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-input label="Email" value={emailId} onchange={contactChangeVal} ></lightning-input>
+						</div>
+					</div>
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-input label="Date of Birth" value={dob} onchange={contactChangeVal} ></lightning-input>
+						</div>
+					</div>
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-combobox
+								name="progress"
+								label="Gender"
+								value={gender}
+								placeholder="Gender"
+								options={genderOptions}
+								onchange={contactChangeVal} ></lightning-combobox>
+						</div>
+					</div>
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-input label="Postal Code" value={postalcode} onchange={contactChangeVal} ></lightning-input>
+						</div>
+					</div>
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-input label="Street Address" value={address} onchange={contactChangeVal}></lightning-input>
+						</div>
+					</div>
+				</div>
+				<br/><br/>
+			</lightning-card>
+		</lightning-accordion-section>
+		<lightning-accordion-section name="B" label="EMPLOYMENT INFO">
+			<lightning-card>
+				<div class="slds-grid slds-wrap">
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-input label="Employer" value={company} onchange={contactChangeVal}></lightning-input>
+						</div>
+					</div>
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-combobox
+								name="progress"
+								label="Income Type"
+								value={incomeType}
+								placeholder="Income Type"
+								options={options}
+								onchange={handleChange} ></lightning-combobox>
+						</div>
+					</div>
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-input label="Employer Phone" value={companyPhone} onchange={contactChangeVal}></lightning-input>
+						</div>
+					</div>
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-input label="Monthly Salary" value={salary} onchange={contactChangeVal} ></lightning-input>
+						</div>
+					</div>
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<div class="slds-form-element">
+								<lightning-combobox
+									name="progress"
+									label="How do your recieve your Paycheck?"
+									value={paycheck}
+									placeholder="How do your recieve your Paycheck?"
+									options={payCheckOptions}
+									onchange={handleChange} ></lightning-combobox>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br/><br/>
+			</lightning-card>
+		</lightning-accordion-section>
+		<lightning-accordion-section name="C" label="FINANCE DETAILS">
+			<lightning-card>
+				<div class="slds-grid slds-wrap">
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-input label="Bank Name" value={bank} onchange={contactChangeVal}></lightning-input>
+						</div>
+					</div>
+				</div>
+			</lightning-card>
+		</lightning-accordion-section>
+		<lightning-accordion-section name="A" label="LOAN DETAILS">
+			<lightning-card>
+				<div class="slds-grid slds-wrap">
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-combobox
+								name="progress"
+								label="Loan Type?"
+								value={loanType}
+								placeholder="Loan Type?"
+								options={loanOptions}
+								onchange={contactChangeVal} ></lightning-combobox>
+						</div>
+					</div>
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-input label="Loan Duration" value={loanDuration} onchange={contactChangeVal}></lightning-input>
+						</div>
+					</div>
+					<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+						<div class="slds-form-element">
+							<lightning-input label="Loan Amount" value={loanAmount} onchange={contactChangeVal}></lightning-input>
+						</div>
+					</div>
+				</div>
+				<br/><br/>
+			</lightning-card>
+		</lightning-accordion-section>
+	</lightning-accordion>
+	<div slot="footer">
+		<lightning-button label="Submit Data" variant="brand" onclick={createUserRecord}></lightning-button>
+	</div>
+	<br/><br/>
+</template>

@@ -1,0 +1,22 @@
+<template>
+  <div class="slds-grid slds-gutters">
+    <div class="slds-col slds-size_2-of-3">
+      <lightning-input type="text" onchange={handleApplicationNumber} label="Please provide your Application Number"
+        required>
+      </lightning-input>
+    </div>
+    <div class="slds-col slds-size_1-of-3" style="height:5rem;width:20rem;padding:1.4rem">
+      <lightning-button class="slds-m-top_small" label="Submit" onclick={trackLoanApp}></lightning-button>
+    </div>
+  </div>
+
+  <template if:true={showLoanApplication}>
+    <lightning-datatable data={loandetail} columns={columns} key-field="Id" max-row-selection="1" show-row-number-column
+      row-number-offset={rowOffset} hide-checkbox-column>
+    </lightning-datatable>
+  </template>
+  <template if:true={error}>
+    {error}
+  </template>
+
+</template>

@@ -1,0 +1,17 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    
+    
+    <aura:attribute name="company" type="String"></aura:attribute>
+    <aura:attribute name="educationdetailListInner" type="list"></aura:attribute>
+    <aura:attribute name="indexNo" type="Integer"></aura:attribute>
+    <aura:attribute name="sequenceNo" type="Integer"></aura:attribute>
+    
+    
+    <H1>Company Information </H1> {!v.indexNo}
+    <lightning:input label="Company" name="company" value="{!v.company}" /> 
+    <br/>
+    <lightning:button iconName="utility:delete" label="Delete" onclick="{!c.deleteDetails}"></lightning:button>
+
+	
+</aura:component>
