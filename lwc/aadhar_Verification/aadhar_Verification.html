@@ -1,14 +1,16 @@
 <template>
 	<template if:false={showUserDetails}>
-		<div class="slds-grid slds-gutters">
-			<div class="slds-col slds-size_2-of-3">
+		<div class="slds-grid slds-gutters slds-align_absolute-center">
+			<div class="slds-col slds-size_1-of-3">
 				<lightning-input type="number" onchange={onAadharChange} label="Please provide your Aadhar number" min-length=12
-					max-length=12 required>
+					max-length=12 required
+					placeholder="Please provide your Aadhar number">
 				</lightning-input>
 			</div>
-			<div class="slds-col slds-size_1-of-3" style="height:5rem;width:20rem;padding:1.4rem">
-				<lightning-button class="slds-m-top_small" label="Verify Aadhar Number" onclick={provideAadharOTP}>
-				</lightning-button>
+			<div class="slds-col slds-size_1-of-3">
+				<!-- <lightning-button class="slds-m-top_small btn btn-default" label="Verify Aadhar Number" onclick={aadharValidate}>
+					</lightning-button> -->
+				<button type="submit" class="btn btn-default" onclick={aadharValidate}>Verify Aadhar Number</button>
 			</div>
 		</div>
 	</template>
@@ -34,5 +36,12 @@
 	</template>
 	<template if:true={showUserDetails}>
 		<c-user-details></c-user-details>
+	</template>
+	<template if:true={isLoaded}>
+		<div class="slds-m-around_large">
+			<lightning-spinner
+				alternative-text="Loading..." variant="brand">
+			</lightning-spinner>
+		</div>
 	</template>
 </template>
