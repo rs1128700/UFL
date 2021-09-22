@@ -1,12 +1,14 @@
 import { LightningElement, api, track } from 'lwc';
-
+import {
+    ShowToastEvent
+  } from 'lightning/platformShowToastEvent';
+  
 export default class Aadhar_Verification extends LightningElement {
-    @api isLoaded = false;
+    @track isLoaded = false;
     @track isModalOpen = false;
     @track aadharnumber;
     @track showUserDetails = false;
-
-
+   
     onAadharChange(event) {
         this.aadharnumber = event.detail.value;
     }
@@ -21,7 +23,6 @@ export default class Aadhar_Verification extends LightningElement {
             if (isInputsCorrect) {
             //perform success logic
             console.log('Inside Method Called')
-            this.openModal();
             }
         }
     
@@ -38,4 +39,23 @@ export default class Aadhar_Verification extends LightningElement {
         this.showUserDetails = true;
     }
 
+    aadharValidate(event) {
+        let adharcardTwelveDigit = /^\d{12}$/;
+        if ( this.aadharnumber.match(adharcardTwelveDigit)) {
+                this.isLoaded = !this.isLoaded;
+                setTimeout(() => {
+                    this.isLoaded = false;
+                    this.openModal();
+                }, 3000);
+            }
+            else {
+                const event = new ShowToastEvent({
+                    message: 'Please enter valid 12 digit aadhar number .',
+                    variant: 'Error'
+                  });
+                  this.dispatchEvent(event);
+            }
+    }
+
+    
 }
