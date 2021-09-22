@@ -1,0 +1,12 @@
+.btn{
+    padding: 16px 30px;
+    line-height: 0;
+    width:20rem;
+    margin-top: 1.5em;
+    font-size: 0.9em;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
